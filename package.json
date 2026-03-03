@@ -1,0 +1,23 @@
+{
+  "name": "jschaefer-lab4",
+  "version": "1.0.0",
+  "description": "Start of SoftwareDev2 project",
+  "homepage": "https://github.com/jackschaefer64/jschaefer-lab4#readme",
+  "bugs": {
+    "url": "https://github.com/jackschaefer64/jschaefer-lab4/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackschaefer64/jschaefer-lab4.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
