@@ -1,0 +1,16 @@
+.image-container {
+        
+        background-image: url('../img/wizard.png'); 
+        height: 400px; 
+        width: 400px;
+        
+    }
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
