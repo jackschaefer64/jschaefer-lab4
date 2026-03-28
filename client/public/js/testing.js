@@ -1,12 +1,13 @@
-posts = [{title: 'Help with brewing potions?', body: 'Looking for some assistance with brewing up some new potions', user: 'Wizard1', img: "/img/wizard.png", user: "@inmytower"}, 
-        {title: 'Nearby battles?', body: 'Does anyone know of some battles or crusades going on? Trying to practice my spells', user: 'Wizard2', img: "/img/wizard2.png", user: "@spellslinger"}, 
-        {title: 'FREE STAFF', body: 'Found and old staff while cleaning. Up for grabs (not cursed)', user: "Wizard3", img: "/img/wizard3.png", user: "@wiseandwizened"}];
-
+posts = [{title: 'Help with brewing potions?', body: 'Looking for some assistance with brewing up some new potions', img: "/img/wizard.png", user: "@inmytower"}, 
+        {title: 'Nearby battles?', body: 'Does anyone know of some battles or crusades going on? Trying to practice my spells', img: "/img/wizard2.png", user: "@spellslinger"}, 
+        {title: 'FREE STAFF', body: 'Found and old staff while cleaning. Up for grabs (not cursed)', img: "/img/wizard3.png", user: "@wiseandwizened"}];
+        //A list of posts with a title, user, body, and image
 function loadPosts()
 {
     for(i = 0; i < posts.length; i++)
     {
         let postText = document.getElementById("post1");
+        let linksText = document.getElementById("links");
         const postsHtml = posts.map(post => `
             <div>
                 <h2 class = "title">${post.title}<span class = "username">    ${post.user}</span></h2>
@@ -16,15 +17,46 @@ function loadPosts()
                 </div>
             </div>
         `).join(''); 
+
         postText.innerHTML = postsHtml;
+        //Displays the username, title of the post, body of the post, and the image associated
     }
        
 }
+function loadUsers()
+{
+    for(i = 0; i < posts.length; i++)
+    {
+        let postText = document.getElementById("post1");
+        const postsHtml = posts.map(post => `
+            <div>
+                <h2 class = "title">${post.user}</h2>
+                
+                <img src = ${post.img} class = "container-image"></img>
+                
+            </div>
+        `).join(''); 
+
+        postText.innerHTML = postsHtml;
+        
+    }
+    //Displays the usernames and the profile pictures
+}
 window.addEventListener("load", () =>
 {
+
     document.getElementById("myButton").addEventListener("click", loadPosts);
+    //Loads the posts when the "myButton" button is clicked
 
 });
+window.addEventListener("load", () =>
+{
+
+    document.getElementById("userButton").addEventListener("click", loadUsers);
+    //Loads the users when the "userButton" button is clicked
+
+});
+
 /*
 let feedElement = document.getElementById('demo--feed');
 feedElement.innerHtml = "Hello World!";

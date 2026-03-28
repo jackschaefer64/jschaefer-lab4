@@ -1,11 +1,9 @@
+
 .container-top {
         height: 100px; 
         width: 100px;
     }
-.container{
-    height: 300px;
-    width: 200px;
-}
+/*The styling for the banner image*/
 .container-image{
     height: 200px;
     width: 200px;
@@ -14,11 +12,13 @@
     border-color: black;
     border-style: solid;
 }
+/*The styling for the images*/
 .top-image{
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
+/*The styling for the banner image*/
 .button-container{
     display: flex;
     justify-content: center;
@@ -26,16 +26,18 @@
     
     height: 25vh;
 }
+/*The styling for button's background*/
 .button-style{
     background-color: rgb(59, 7, 35);
     color: #fff;              
-    padding: 15px 30px;      
+    padding: 15px;      
     border: none;           
     border-radius: 10px;     
     font-size: 16px;         
     cursor: pointer;        
     
 }
+/*The styling for the button*/
 .box{
     width: 100vw;
     height: 100px;
@@ -50,10 +52,12 @@
     align-items: center;
     justify-content: center;
 }
+/*The styling for the banner*/
 .box-content{
     color: white;
     font-size: 50px;
 }
+/*The styling for the banner text*/
 .title{
     color: white;
     margin-top: 100px;
@@ -63,12 +67,15 @@
     background-color: rgb(144, 141, 144);
     width: 80vw;
 }
+/*The styling for the titles*/
 .post-body{
     color: white;
 }
+/*The styling for post body text*/
 .username{
     font-size: 10px;
 }
+/*The styling for the usernames*/
 .post-container{
     height: 275px;
     width: 75vw;
@@ -77,7 +84,15 @@
     border-style: solid;
     background-color: rgb(144, 141, 144);
 }
-
+/*The styling for the posts*/
+.page-links{
+   
+    color: darkorchid;
+    position:relative;
+    text-align: center;
+    margin-bottom: 25px;
+}
+/*The styling for the page links*/
 
 
 
