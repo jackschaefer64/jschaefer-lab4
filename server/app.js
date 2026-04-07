@@ -16,3 +16,7 @@ app.get('/users', function (req, res) {
 
 app.listen(1337, () => console.log('Marist Chatter listening on port 1337!'));
 
+let userRoutes = require('./route/userRoute');
+app.use('/api/user', userRoutes);
+let discussionRoutes = require('./route/discussionRoute');
+
