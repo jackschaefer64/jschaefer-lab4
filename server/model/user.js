@@ -6,6 +6,6 @@ class User{
 
     }
 }
-exports.createUser() = function(firstName, lastName){
+exports.createUser = function(firstName, lastName){
         return new User(firstName, lastName);
     }
