@@ -16,6 +16,7 @@ router.route('/')
     
 router.route('/:index')
             .get((req, res)=> {
+                console.log("getting individual");
                 discussionController.getPost(req, res);
             }
         );

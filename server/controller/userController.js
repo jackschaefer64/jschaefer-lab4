@@ -3,11 +3,11 @@ let User = require('../model/user');
 let userService = require('../service/userService');
 
 let users = [];
-let jack = User.createUser("Jack", "Schaefer");
-let alice = User.createUser("Alice", "Thompson");
-let bob = User.createUser("Bob", "Diane");
-let charlie = User.createUser("Charlie", "Green");
-let david = User.createUser("David", "Barker");
+let jack = User.createUser("Jack", "Schaefer", "001", "js@gmail");
+let alice = User.createUser("Alice", "Thompson", "002", "at@gmail");
+let bob = User.createUser("Bob", "Diane", "003", "bd@gmail");
+let charlie = User.createUser("Charlie", "Green", "004", "cg@gmail");
+let david = User.createUser("David", "Barker", "005", "db@gmail");
 
 users.push(jack);
 users.push(alice);
@@ -25,8 +25,45 @@ exports.getUser = (req, res) => {
     res.send(users[req.params.index]);
 }
 exports.saveUser = (req, res) => {
-        let newUser = User.createUser(req.body.firstName, req.body.lastName);
+        let newUser = User.createUser(req.body.firstName, req.body.lastName, req.body.userID, req.body.email);
         users.push(newUser);
         res.setHeader('Content-Type', 'application/json');
     res.send(users);
+}
+exports.updateUser = (req, res) => {
+        var updatedUser = users[req.params.index];
+        if(req.body.firstName)
+        {
+            updatedUser.firstName = req.body.firstName;
+        }
+        if(req.body.lastName)
+        {
+            updatedUser.lastName = req.body.lastName;
+        }
+        if(req.body.userID)
+        {
+            updatedUser.userID = req.body.userID;
+        }
+        if(req.body.email)
+        {
+            updatedUser.email = req.body.email;
+        }
+        users[req.params.index] = updatedUser;
+        res.setHeader('Content-Type','application/json');
+        res.send(users[req.params.index]);
+}
+exports.updateUserEmail = (req, res) => {
+        var updatedUser = users[req.params.index];
+        if(req.body.email)
+        {
+            updatedUser.email = req.body.email;
+        }
+        users[req.params.index] = updatedUser;
+        res.setHeader('Content-Type', 'application/json');
+        res.send(users[req.params.index]);
+}
+exports.deleteUser = (req, res) => {
+        users.splice(req.params.index, 1);
+        res.setHeader('Content-Type', 'application/json');
+        res.send(users);
 }

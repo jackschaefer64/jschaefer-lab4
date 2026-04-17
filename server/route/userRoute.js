@@ -16,8 +16,22 @@ router.route('/')
     
 router.route('/:index')
             .get((req, res)=> {
+                console.log("getting individual");
                 userController.getUser(req, res);
+            })
+            .put((req, res)=> {
+                console.log("Fully saving");
+                userController.updateUser(req, res);
+            })
+            .patch((req, res)=> {
+                console.log("Partial saving");
+                userController.updateUserEmail(req, res);
+            })
+            .delete((req, res) => {
+                console.log("Deleting user");
+                userController.deleteUser(req, res);
             }
         );
+
 
 
