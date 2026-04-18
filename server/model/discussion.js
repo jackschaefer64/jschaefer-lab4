@@ -7,5 +7,5 @@ class Post{
     }
 }
 exports.createPost = function(title, body, image){
-    return new UserActivation(title, body, image);
+    return new Post(title, body, image);
 }

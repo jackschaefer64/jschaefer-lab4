@@ -26,3 +26,36 @@ exports.savePost = (req, res) => {
         res.setHeader('Content-Type', 'application/json');
     res.send(posts);
 }
+exports.updatePost = (req, res) => {
+        var updatedPost = users[req.params.index];
+        if(req.body.title)
+        {
+            updatedPost.title = req.body.title;
+        }
+        if(req.body.body)
+        {
+            updatedPost.body = req.body.body;
+        }
+        if(req.body.img)
+        {
+            updatedPost.img = req.body.img;
+        }
+        posts[req.params.index] = updatedUser;
+        res.setHeader('Content-Type','application/json');
+        res.send(posts[req.params.index]);
+}
+exports.updateImg = (req, res) => {
+        var updatedPost = posts[req.params.index];
+        if(req.body.img)
+        {
+            updatedPost.img = req.body.img;
+        }
+        posts[req.params.index] = updatedPost;
+        res.setHeader('Content=Type','application/json');
+        res.send(users[req.params.index]);
+}
+exports.deletePost = (req, res) => {
+        posts.splice(req.params.index, 1);
+        res.setHeader('Content-Type', "application/json");
+        res.send(posts);
+}

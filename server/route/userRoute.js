@@ -5,26 +5,26 @@ var router = express.Router();
 module.exports = router;
 router.route('/')
             .get((req, res) =>{
-                console.log("getting all users");
+                console.log("Getting all users");
                 userController.getAllUsers(req, res);
             })
             .post((req, res) => {
-                console.log("saving user");
+                console.log("Saving user");
                 userController.saveUser(req, res);
             }
         );
     
 router.route('/:index')
             .get((req, res)=> {
-                console.log("getting individual");
+                console.log("Getting individual user");
                 userController.getUser(req, res);
             })
             .put((req, res)=> {
-                console.log("Fully saving");
+                console.log("Fully updating user");
                 userController.updateUser(req, res);
             })
             .patch((req, res)=> {
-                console.log("Partial saving");
+                console.log("Partial updating user");
                 userController.updateUserEmail(req, res);
             })
             .delete((req, res) => {
