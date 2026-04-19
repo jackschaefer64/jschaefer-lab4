@@ -31,26 +31,14 @@ exports.saveUser = (req, res) => {
     res.send(users);
 }
 exports.updateUser = (req, res) => {
-        var updatedUser = users[req.params.index];
-        if(req.body.firstName)
-        {
-            updatedUser.firstName = req.body.firstName;
-        }
-        if(req.body.lastName)
-        {
-            updatedUser.lastName = req.body.lastName;
-        }
-        if(req.body.userID)
-        {
-            updatedUser.userID = req.body.userID;
-        }
-        if(req.body.email)
-        {
-            updatedUser.email = req.body.email;
-        }
+        let updatedUser = User.createUser(
+            req.body.firstName,
+            req.body.lastName,
+            req.body.userID,
+            req.body.email);
         users[req.params.index] = updatedUser;
         res.setHeader('Content-Type','application/json');
-        res.send(users[req.params.index]);
+        res.send(updatedUser);
 }
 exports.updateUserEmail = (req, res) => {
         var updatedUser = users[req.params.index];
@@ -61,9 +49,15 @@ exports.updateUserEmail = (req, res) => {
         users[req.params.index] = updatedUser;
         res.setHeader('Content-Type', 'application/json');
         res.send(users[req.params.index]);
+        
 }
 exports.deleteUser = (req, res) => {
         users.splice(req.params.index, 1);
         res.setHeader('Content-Type', 'application/json');
         res.send(users);
+}
+exports.getUserByEmail = (req, res) => {
+    let user = users.find(u => u.email === req.params.email);
+    res.setHeader('Content-Type','application/json');
+    res.send(user);
 }

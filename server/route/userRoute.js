@@ -13,7 +13,9 @@ router.route('/')
                 userController.saveUser(req, res);
             }
         );
-    
+router.get('/email/:email', (req, res) => {
+            userController.getUserByEmail(req, res);
+        });  
 router.route('/:index')
             .get((req, res)=> {
                 console.log("Getting individual user");
@@ -32,6 +34,7 @@ router.route('/:index')
                 userController.deleteUser(req, res);
             }
         );
+
 
 
 
