@@ -42,10 +42,17 @@ function loadUsers()
     }
     //Displays the usernames and the profile pictures
 }
+function testing()
+{
+    var req = new XMLHttpRequest();
+    req.open("GET", "/api/user", false);
+    req.send(null);
+    alert(req.responseText);
+}
 window.addEventListener("load", () =>
 {
 
-    document.getElementById("myButton").addEventListener("click", loadPosts);
+    document.getElementById("myButton").addEventListener("click", testing);
     //Loads the posts when the "myButton" button is clicked
 
 });
