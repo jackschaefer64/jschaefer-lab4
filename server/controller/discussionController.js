@@ -3,9 +3,9 @@ let Post = require('../model/discussion');
 let discussionService = require('../service/discussionService');
 
 let posts = [];
-let post1 = Post.createPost("title1", "body1", "img1");
-let post2 = Post.createPost("title2", "body2", "img2");
-let post3 = Post.createPost("title3", "body3", "img3");
+let post1 = Post.createPost("title1", "body1", "/img/wizard.png");
+let post2 = Post.createPost("title2", "body2", "/img/wizard2.png");
+let post3 = Post.createPost("title3", "body3", "/img/wizard3.png");
 
 posts.push(post1);
 posts.push(post2);
