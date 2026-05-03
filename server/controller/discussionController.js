@@ -21,7 +21,7 @@ exports.getPost = (req, res) => {
     res.send(posts[req.params.index]);
 }
 exports.savePost = (req, res) => {
-        let newPost = Post.createUser(req.body.title, req.body.body, req.body.img);
+        let newPost = Post.createPost(req.body.title, req.body.body, req.body.img);
         posts.push(newPost);
         res.setHeader('Content-Type', 'application/json');
     res.send(posts);

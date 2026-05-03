@@ -70,17 +70,43 @@ function testing()
     loadPosts(posts, names);
     //console.log(JSON.parse(req.responseText));
 }
+function makePost()
+{
+    
+    const postInputTitle = document.getElementById("titleInput").value;
+    const postInputBody = document.getElementById("bodyInput").value;
+    const postInputImage = "/img/" + document.getElementById("imgInput").value;
+    console.log("Title: " + postInputTitle + "\nBody: " + postInputBody + "\nImage: " + postInputImage);
+    
+    fetch('/api/discussion/',
+    {
+        method:'post',
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        body: '{"title":"'+postInputTitle+'","body":"'+postInputBody+'","image":"'+postInputImage+'"}'
+    }).then(function(response) {
+        if (response.status !== 200){
+        console.log('problem with ajax call! ' + response.status + " msg: " + response.value);
+        return;
+    }
+    //console.log("profession " + profession + " saved!");
+    });
+    
+}
 window.addEventListener("load", () =>
 {
 
     document.getElementById("myButton").addEventListener("click", testing);
+    document.getElementById("makePostButton").addEventListener("click", makePost);
+    document.getElementById("userButton").addEventListener("click", loadUsers);
     //Loads the posts when the "myButton" button is clicked
 
 });
 window.addEventListener("load", () =>
 {
 
-    document.getElementById("userButton").addEventListener("click", loadUsers);
+    //document.getElementById("userButton").addEventListener("click", loadUsers);
     //Loads the users when the "userButton" button is clicked
 
 });

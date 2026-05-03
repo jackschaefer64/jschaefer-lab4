@@ -11,14 +11,19 @@
     </head>
     <body style = "background-color: rgb(255, 255, 255);"> 
         <script src = "/js/testing.js"></script>
+
         <!--The JS script we're using-->
         <p>Hello World!</p>
         <p id = "post1">&nbsp;</p>
         <!--If I delete these two paragraphs then the formatting gets messed up (I'm not sure why??)-->
+        
+        
         <div class = "button-container">
             <button id="myButton" class = "button-style">Show Posts!</button>
         </div>
         <!--The button HTML-->
+
+
         <div class="box">
             <div class = "container-top">
                 <img src = "/img/headerImage.png" class = "top-image">
@@ -27,6 +32,22 @@
                 <p><strong>Wizard's Tavern</p>
             </div>
         </div>
+
+
+        <div class = "input-box-title">
+            <input id = "titleInput" type = "text" placeholder="Post title"><br><br>
+        </div>
+        <div class = "input-box-body">
+            <textarea id = "bodyInput" rows="10" cols="50" placeholder="Post body"></textarea>
+        </div>
+        <div class = "input-box-body">
+            <textarea id = "imgInput" rows = "1" cols="50" placeholder="File name"></textarea>
+        </div>
+        <div id = "makePostButton" class = "submit-button">
+            <button>Submit</button>
+        </div>
+
+
         <!--The banner HTML-->
         <a class = "page-links" href = "/">General</a>
         <p></p>
