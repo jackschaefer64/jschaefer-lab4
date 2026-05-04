@@ -27,7 +27,7 @@ exports.savePost = (req, res) => {
     res.send(posts);
 }
 exports.updatePost = (req, res) => {
-        var updatedPost = users[req.params.index];
+        var updatedPost = posts[req.params.index];
         if(req.body.title)
         {
             updatedPost.title = req.body.title;
@@ -40,7 +40,7 @@ exports.updatePost = (req, res) => {
         {
             updatedPost.img = req.body.img;
         }
-        posts[req.params.index] = updatedUser;
+        posts[req.params.index] = updatedPost;
         res.setHeader('Content-Type','application/json');
         res.send(posts[req.params.index]);
 }
@@ -51,8 +51,8 @@ exports.updateImg = (req, res) => {
             updatedPost.img = req.body.img;
         }
         posts[req.params.index] = updatedPost;
-        res.setHeader('Content=Type','application/json');
-        res.send(users[req.params.index]);
+        res.setHeader('Content-Type','application/json');
+        res.send(posts[req.params.index]);
 }
 exports.deletePost = (req, res) => {
         posts.splice(req.params.index, 1);
