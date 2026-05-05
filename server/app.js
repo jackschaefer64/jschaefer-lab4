@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const {Pool, Client} = require('pg');
 const path = require('path');
 const app = express();
 app.use(express.static('client/public'));
@@ -15,12 +16,12 @@ app.get('/users', function (req, res) {
 })
 //Allows the user to go between multiple pages
 
-
-app.listen(1337, () => console.log('Marist Chatter listening on port 1337!'));
-
 let userRoutes = require('./route/userRoute');
 app.use('/api/user', userRoutes);
 let discussionRoutes = require('./route/discussionRoute');
 app.use('/api/discussion', discussionRoutes);
+app.listen(1337, () => console.log('Marist Chatter listening on port 1337!'));
+
+
 
 

@@ -3,9 +3,9 @@ let Post = require('../model/discussion');
 let discussionService = require('../service/discussionService');
 
 let posts = [];
-let post1 = Post.createPost("title1", "body1", "/img/wizard.png");
-let post2 = Post.createPost("title2", "body2", "/img/wizard2.png");
-let post3 = Post.createPost("title3", "body3", "/img/wizard3.png");
+let post1 = Post.createPost("Help with brewing potions?", "Looking for some assistance with brewing up some new potions", "/img/wizard.png");
+let post2 = Post.createPost("Nearby battles?", "Does anyone know of some battles or crusades going on? Trying to practice my spells", "/img/wizard2.png");
+let post3 = Post.createPost("FREE STAFF", "Found and old staff while cleaning. Up for grabs (not cursed)", "/img/wizard3.png");
 
 posts.push(post1);
 posts.push(post2);

@@ -1,1 +1,4 @@
-console.log("[discussionService] initialized")
+console.log("[discussionService] initialized");
+const postPool = new Pool({
+    
+})

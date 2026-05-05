@@ -4,6 +4,7 @@ class Post{
         this.title = title;
         this.body = body;
         this.image = image;
+        
     }
 }
 exports.createPost = function(title, body, image){

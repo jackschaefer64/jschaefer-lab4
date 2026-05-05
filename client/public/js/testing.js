@@ -1,9 +1,5 @@
 
-/*posts = [{title: 'Help with brewing potions?', body: 'Looking for some assistance with brewing up some new potions', img: "/img/wizard.png", user: "@inmytower"}, 
-        {title: 'Nearby battles?', body: 'Does anyone know of some battles or crusades going on? Trying to practice my spells', img: "/img/wizard2.png", user: "@spellslinger"}, 
-        {title: 'FREE STAFF', body: 'Found and old staff while cleaning. Up for grabs (not cursed)', img: "/img/wizard3.png", user: "@wiseandwizened"}];
-        //A list of posts with a title, user, body, and image
-*/
+
 function loadPosts(posts)
 {
     
@@ -17,6 +13,7 @@ function loadPosts(posts)
                 <div class = "post-container">
                     <p class = "post-body">${post.body}</p>
                     <img src = ${post.image} class = "container-image"></img>
+                    <button id = "deleteButton" class = "delete-Buttons" onclick = "deletePost('${post.title}')">Delete Post</button>
                 </div>
             </div>
         `).join(''); 
@@ -31,6 +28,7 @@ function loadPosts(posts)
     document.getElementById("titleInput").value = '';
     document.getElementById("bodyInput").value = '';
     document.getElementById("imgInput").value = '';  
+    //document.getElementById("deleteButton").addEventListener("click", deletePost);
 }
 function loadUsers(users)
 {
@@ -98,11 +96,17 @@ function makePost()
     });
     
 }
+function deletePost(title)
+{
+    console.log(title);
+    //api/discussion/id
+}
 window.addEventListener("load", () =>
 {
 
     document.getElementById("myButton").addEventListener("click", testing);
     document.getElementById("makePostButton").addEventListener("click", makePost);
+
     
     //Loads the posts when the "myButton" button is clicked
 
