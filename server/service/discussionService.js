@@ -31,7 +31,7 @@ exports.deletePost = async function(id) {
 exports.updatePost = async function(id, title, body, img){
     let sqlText = 
     'UPDATE posts SET title = $1, body = $2, img = $3 WHERE id = $4 RETURNING *';
-    let res = await pool.query(sqlText, [id, title, body, img]);
+    let res = await pool.query(sqlText, [title, body, img, id]);
 
     return res.rows[0];
 }
