@@ -13,7 +13,7 @@ router.route('/')
                 discussionController.savePost(req, res);
             }
         );
-router.route('/:index')
+router.route('/:id')
             .get((req, res)=> {
                 console.log("Getting individual post");
                 discussionController.getPost(req, res);

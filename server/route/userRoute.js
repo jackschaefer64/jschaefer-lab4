@@ -16,7 +16,7 @@ router.route('/')
 router.get('/email/:email', (req, res) => {
             userController.getUserByEmail(req, res);
         });  
-router.route('/:index')
+router.route('/:id')
             .get((req, res)=> {
                 console.log("Getting individual user");
                 userController.getUser(req, res);

@@ -2,59 +2,48 @@ console.log("[userController] initialized");
 let User = require('../model/user');
 let userService = require('../service/userService');
 
-let users = [];
-let jack = User.createUser("Jack", "Schaefer", "001", "js@gmail");
-let alice = User.createUser("Alice", "Thompson", "002", "at@gmail");
-let bob = User.createUser("Bob", "Diane", "003", "bd@gmail");
-let charlie = User.createUser("Charlie", "Green", "004", "cg@gmail");
-let david = User.createUser("David", "Barker", "005", "db@gmail");
-
-users.push(jack);
-users.push(alice);
-users.push(bob);
-users.push(charlie);
-users.push(david);
-
-console.log(users);
-exports.getAllUsers = (req, res) => {
+exports.getAllUsers = async (req, res) => {
+    let users = await userService.getAllUsers();
     res.setHeader('Content-Type', 'application/json');
-    res.send(users);
+    res.json(users);
 }
-exports.getUser = (req, res) => {
+exports.getUser = async (req, res) => {
+    let user = await userService.getUser(req.params.id);
+    res.json(user);
+}
+exports.saveUser = async (req, res) => {
+    await userService.saveUser(
+        req.body.firstName,
+        req.body.lastName,
+        req.body.email
+    );
+    let users = await userService.getAllUsers();
     res.setHeader('Content-Type', 'application/json');
-    res.send(users[req.params.index]);
+    res.json(users);
 }
-exports.saveUser = (req, res) => {
-        let newUser = User.createUser(req.body.firstName, req.body.lastName, req.body.userID, req.body.email);
-        users.push(newUser);
-        res.setHeader('Content-Type', 'application/json');
-    res.send(users);
-}
-exports.updateUser = (req, res) => {
-        let updatedUser = User.createUser(
+exports.updateUser = async (req, res) => {
+        let updatedUser = await userService.updateUser(
+            req.params.id,
             req.body.firstName,
             req.body.lastName,
-            req.body.userID,
-            req.body.email);
-        users[req.params.index] = updatedUser;
-        res.setHeader('Content-Type','application/json');
-        res.send(updatedUser);
+            req.body.email
+        );
+        res.json(updatedUser);
 }
-exports.updateUserEmail = (req, res) => {
-        var updatedUser = users[req.params.index];
-        if(req.body.email)
-        {
-            updatedUser.email = req.body.email;
-        }
-        users[req.params.index] = updatedUser;
-        res.setHeader('Content-Type', 'application/json');
-        res.send(users[req.params.index]);
+exports.updateUserEmail = async (req, res) => {
+       let existingUser = await userService.getUser(req.params.id);
+       let updated = await userService.updateUser(
+            req.params.id,
+            existingUser.firstName,
+            existingUser.lastName,
+            req.body.email
+       );
+       res.json(updated)
         
 }
-exports.deleteUser = (req, res) => {
-        users.splice(req.params.index, 1);
-        res.setHeader('Content-Type', 'application/json');
-        res.send(users);
+exports.deleteUser = async (req, res) => {
+        await userService.deleteUser(req.params.id);
+        res.json({message: "Deleted"});
 }
 exports.getUserByEmail = (req, res) => {
     let user = users.find(u => u.email === req.params.email);

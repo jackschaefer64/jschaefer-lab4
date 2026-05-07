@@ -1,12 +1,14 @@
 console.log("[discussionModel] initialized");
 class Post{
-    constructor(title, body, image){
+    constructor(id, title, body, img){
+        this.id = id;
         this.title = title;
         this.body = body;
-        this.image = image;
+        this.img = img;
+        
         
     }
 }
-exports.createPost = function(title, body, image){
-    return new Post(title, body, image);
+exports.createPost = function(id, title, body, img){
+    return new Post(id, title, body, img);
 }
