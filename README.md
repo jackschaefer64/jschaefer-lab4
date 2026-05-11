@@ -20,8 +20,10 @@ Navigate to http://localhost:PORT in your browser.
 
 Database setup / config - 
 To set up the database, locate the Create-db.sql file. That information is what you need to create your schema.
+Create a copy of .env.example and name it .env
+Change the values in the new .env file to be your user, password, port, etc.
 
-psql -U postgres -f server/db/Create-db.sql
+
 
 Dev Notes - 
 Currently there are only a few minor issues with the project that I know of. For one, when creating a post there is a field around the actual submit button that counts as a button click. If you click the areas to the left and right of the button, you will submit the post. Also, in the image input field, users can press enter and tab down their text. It doesn't affect the actual image implementation, but it can be confusing to users to see their text disappear. There also seems to be an issue where editing the information of a post automatically sends it to the bottom of the feed. This isn't too much of an issue with a small amount of posts, but with a larger sample size it could get hectic or confusing. 
