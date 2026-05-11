@@ -20,6 +20,7 @@ Navigate to http://localhost:PORT in your browser.
 
 Database setup / config - 
 To set up the database, locate the Create-db.sql file. That information is what you need to create your schema.
+
 psql -U postgres -f server/db/Create-db.sql
 
 Dev Notes - 
