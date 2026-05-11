@@ -141,6 +141,14 @@
     cursor: pointer;  
     margin-left: 50px;
 }
-
+.login-Button{
+    background-color: rgb(59, 7, 35);
+    color: #fff;              
+    padding: 10px;      
+    border: none;           
+    border-radius: 10px;     
+    font-size: 16px;         
+    cursor: pointer;  
+}
 
 

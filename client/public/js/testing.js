@@ -29,7 +29,8 @@ function loadUsers(users)
     let postText = document.getElementById("post1");
     const postsHtml = users.map(user => `
         <div>
-            <h2 class = "title">${user.email}</h2>     
+            <h2 class = "title">${user.email}</h2>
+            <button class = "login-Button" onclick = "alert('Logged in as ${user.email}')">Login</button>     
         </div>
     `).join(''); 
     console.log(users);
