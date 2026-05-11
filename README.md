@@ -1,5 +1,4 @@
 # jschaefer-lab4
-Repo for lab 4
 Overview - 
 
 This project is a foray into front-end and back-end development through a webpage. This page is a locally run site that allows user to post posts to a feed. Each post contains a title, body, and image that can be edited using the UI buttons. Each post is saved to a SQL database that keeps persistent post data, and that SQL is asynchronously accessed when the GET, POST, PATCH, DELETE, and PUT HTTP requests are sent. 
@@ -8,8 +7,20 @@ The users and the posts currently do not have any connection to one another, whi
 
 Install Instructions - 
 Dependencies - 
+    "body-parser": "^2.2.2",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
 Commands - 
+clone the repo 
+cd to jschaefer-lab4
+npm install
+node server/app.js in the main folder directory
+Navigate to http://localhost:PORT in your browser.
+
 Database setup / config - 
+To set up the database, locate the Create-db.sql file. That information is what you need to create your schema.
+psql -U postgres -f server/db/Create-db.sql
 
 Dev Notes - 
 Currently there are only a few minor issues with the project that I know of. For one, when creating a post there is a field around the actual submit button that counts as a button click. If you click the areas to the left and right of the button, you will submit the post. Also, in the image input field, users can press enter and tab down their text. It doesn't affect the actual image implementation, but it can be confusing to users to see their text disappear. There also seems to be an issue where editing the information of a post automatically sends it to the bottom of the feed. This isn't too much of an issue with a small amount of posts, but with a larger sample size it could get hectic or confusing. 
